@@ -1,10 +1,10 @@
 // src/App.tsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ListForm from "./ListForm";
 import ListDisplay from "./ListDisplay";
 
 const App: React.FC = () => {
+  document.title = 'CollabCart';
   return (
     <Router>
       <Routes>

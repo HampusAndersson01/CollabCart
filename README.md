@@ -25,42 +25,62 @@ This project is a real-time shopping list application that allows users to creat
 
 ### Installation
 
-1. Clone the repository:
+1.  Clone the repository:
 
-   ```bash
-   git clone https://github.com/[your-username]/real-time-shopping-list.git
+    ```bash
+    git clone https://github.com/[your-username]/real-time-shopping-list.git
     ```
 
-2. Install dependencies:
+2.  Install dependencies:
 
-   ```bash
-   cd real-time-shopping-list
-   npm install
-   ```
-3. Configure Firebase:
+    ```bash
+    cd real-time-shopping-list
+    npm install
+    ```
 
-   - Create a new Firebase project.
-   - Enable Realtime Database.
-   - Copy the Firebase configuration object from the Firebase Console into `src/firebase.ts`.
+3.  Configure Firebase:
+
+    - Create a new Firebase project.
+    - Enable Realtime Database.
+    - Copy the Firebase configuration object from the Firebase Console into `src/firebase.ts`.
+
+4.  Configure the env file: 
+    1. Copy the `.env.example` file to `.env`:
+
+        ```bash
+        cp .env.example .env
+        ```
+
+    2. Update the `.env` file with your Firebase project variable
+
+        ```bash
+        REACT_APP_FIREBASE_API_KEY: Your Firebase API key for authentication.
+        REACT_APP_FIREBASE_AUTH_DOMAIN: Your Firebase authentication domain.
+        REACT_APP_FIREBASE_DATABASE_URL: Your Firebase Realtime Database URL.
+        REACT_APP_FIREBASE_PROJECT_ID: Your Firebase project ID.
+        REACT_APP_FIREBASE_STORAGE_BUCKET: Your Firebase storage bucket.
+        REACT_APP_FIREBASE_MESSAGING_SENDER_ID: Your Firebase messaging sender ID.
+        REACT_APP_FIREBASE_APP_ID: Your Firebase application ID.
+        ```
 
 ### Usage
 
 1. Start the development server:
 
-    ```
-    npm start
-    ```
+   ```
+   npm start
+   ```
 
 2. Open the application in your browser:
 
-    ```
-    http://localhost:3000
-    ```
-
-
+   ```
+   http://localhost:3000
+   ```
 
 ### Demo
-You can access the live demo of the application [here]().
+
+You can access the live demo of the application [here](https://collab-cart-red.vercel.app/).
 
 ### License
+
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

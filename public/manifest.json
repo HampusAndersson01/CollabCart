@@ -1,6 +1,6 @@
 {
-  "short_name": "Real time lists",
-  "name": "Real Time Lists App",
+  "short_name": "CollabCart",
+  "name": "CollabCart",
   "icons": [],
   "start_url": ".",
   "display": "standalone",
