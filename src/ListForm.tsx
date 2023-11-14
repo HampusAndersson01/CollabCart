@@ -6,9 +6,11 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
+import ShareIcon from "@mui/icons-material/Share";
 
 const ListForm: React.FC = () => {
   const [item, setItem] = useState<string>("");
+  const [copied, setCopied] = useState<boolean>(false);
   const navigate = useNavigate();
   const { listId } = useParams<{ listId?: string }>();
 
@@ -42,6 +44,18 @@ const ListForm: React.FC = () => {
     navigate(`/list/${newListRef.key}`);
   };
 
+  const handleShare = async () => {
+    if (navigator.clipboard) {
+      const currentURL = window.location.href;
+      await navigator.clipboard.writeText(currentURL);
+      setCopied(true);
+      // Reset the copied state after 2 seconds
+      setTimeout(() => {
+        setCopied(false);
+      }, 2000);
+    }
+  };
+
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       handleAddItem();
@@ -50,16 +64,31 @@ const ListForm: React.FC = () => {
 
   return (
     <div style={styles.container}>
-      <div style={styles.buttonContainer}>
-        <Button
-          style={styles.createNewListButton}
-          variant="outlined"
-          onClick={handleCreateNewList}
-          startIcon={<PlaylistAddIcon />}
-        >
-          Create New List
-        </Button>
-      </div>
+      <header style={styles.header}>
+        <div style={styles.shareButtonContainer}>
+          <Button
+            style={styles.shareButton}
+            variant="text"
+            onClick={handleShare}
+            startIcon={<ShareIcon />}
+          >
+            Share
+          </Button>
+          {copied && (
+            <div style={styles.copiedMessage}>Copied to Clipboard!</div>
+          )}
+        </div>
+        <div style={styles.createNewListContainer}>
+          <Button
+            style={styles.createNewListButton}
+            variant="text"
+            onClick={handleCreateNewList}
+            startIcon={<PlaylistAddIcon />}
+          >
+            Create New List
+          </Button>
+        </div>
+      </header>
       <TextField
         style={styles.input}
         type="text"
@@ -69,6 +98,7 @@ const ListForm: React.FC = () => {
         variant="outlined"
         onKeyPress={handleKeyPress}
       />
+
       <div style={styles.buttonContainer}>
         <Button
           style={styles.addButton}
@@ -101,12 +131,45 @@ const styles: { [key: string]: React.CSSProperties } = {
     flexDirection: "column",
     alignItems: "flex-end",
   },
+  shareButtonContainer: {
+    width: "50%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    marginBottom: "10px",
+    position: "relative",
+  },
+  shareButton: {
+    marginRight: "10px",
+  },
   addButton: {
     margin: "10px 0",
     width: "100%",
   },
+  createNewListContainer: {
+    width: "50%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-end",
+    marginBottom: "10px",
+    position: "relative",
+  },
   createNewListButton: {
-    margin: "10px",
+    marginLeft: "10px",
+  },
+  copiedMessage: {
+    position: "absolute",
+    top: "0",
+    left: "0",
+    background: "#000",
+    color: "#fff",
+    padding: "5px",
+    borderRadius: "5px",
+  },
+  header: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between",
   },
 };
 

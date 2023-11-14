@@ -101,8 +101,10 @@ const ListDisplay: React.FC = () => {
               <MenuItem value="" disabled>
                 Unit
               </MenuItem>
-              <MenuItem value="g">g</MenuItem>
               <MenuItem value="pc">pc</MenuItem>
+              <MenuItem value="g">g</MenuItem>
+              <MenuItem value="l">l</MenuItem>
+
               {/* Add other units as needed */}
             </Select>
             <IconButton onClick={() => handleRemoveItem(itemData.id)}>
