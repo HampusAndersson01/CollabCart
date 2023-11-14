@@ -16,6 +16,8 @@ This project is a real-time shopping list application that allows users to creat
 
 - **Responsive Design:** The application is designed to work well on both desktop and mobile devices, ensuring a consistent user experience.
 
+
+
 ## Getting Started
 
 ### Prerequisites
@@ -80,6 +82,17 @@ This project is a real-time shopping list application that allows users to creat
 ### Demo
 
 You can access the live demo of the application [here](https://collab-cart-red.vercel.app/).
+
+### Techniques Used
+- React.js: Building the user interface and managing component-based structure.
+
+- Firebase Realtime Database: Providing real-time synchronization for collaborative updates.
+
+- Material-UI: Styling the components with a responsive and minimalistic design.
+
+- React Router: Handling navigation within the application.
+
+- Environment Variables (.env): Managing sensitive configuration details securely.
 
 ### License
 
