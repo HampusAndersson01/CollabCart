@@ -86,7 +86,7 @@ const ListDisplay: React.FC = () => {
               type="text"
               value={itemData.quantity || ""}
               placeholder="Qty"
-              style={{ width: "50px" }} // Set a fixed width
+              style={{ width: "50px" }} 
               onChange={(e) =>
                 handleQuantityChange(itemData.id, e.target.value)
               }
@@ -94,7 +94,7 @@ const ListDisplay: React.FC = () => {
             <Select
               value={itemData.unit || ""}
               displayEmpty
-              style={{ width: "70px" }} // Set a fixed width
+              style={{ width: "70px" }} 
               onChange={(e) => handleUnitChange(itemData.id, e.target.value)}
               input={<Input />}
             >
@@ -104,8 +104,6 @@ const ListDisplay: React.FC = () => {
               <MenuItem value="pc">pc</MenuItem>
               <MenuItem value="g">g</MenuItem>
               <MenuItem value="l">l</MenuItem>
-
-              {/* Add other units as needed */}
             </Select>
             <IconButton onClick={() => handleRemoveItem(itemData.id)}>
               <DeleteIcon />
