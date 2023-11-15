@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ListDisplay from "./ListDisplay";
 
 const App: React.FC = () => {
-  document.title = 'CollabCart';
   return (
     <Router>
       <Routes>
