@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { database } from "./firebase";
+import { database } from "../config/firebase";
 import { ref, onValue, off, remove, update } from "firebase/database";
 import ListForm from "./ListForm";
 import List from "@mui/material/List";
